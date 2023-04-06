@@ -20,18 +20,23 @@ Imagine that a piece of software has 100 modules. In order to compile and link i
 A makefile has 2 essential components :
 
  - <ins>Rules</ins>
+ 
    - A <ins>rule</ins> tells make how to build a particular <ins>target</ins>. Typically, a target is a file name. The form of a rule is
+
    ``` 
     target: dependencies
 	    command
 	    ...
 	    command
     ```
+    
     -  The <ins>dependencies</ins> are other targets or source files on which this target depends, written one after another, separated by spaces. The commands tell what to do to build the target. For example, rule:
+    
     ```
       main.o: main.cpp tools.h stuff.h
 	      g++ -Wall -g -c main.cpp
     ```
+    
     - says that file main.o depends on main.cpp, tools.h and stuff.h. (If any of those files is modified, main.o needs to be rebuilt.) It also gives a command that will build main.o. Each command must be preceded by a tab character. That is how make determines that it is a command. 
  
  - <ins>Definitions</ins>
