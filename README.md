@@ -58,7 +58,7 @@ A makefile has 2 essential components :
 
     g++ -Wall -g -c main.cpp
     
-#Going deeper
+# Going deeper
 
 The main structure of a Makefile consists of a series of rules and dependencies that specify how to build a target (usually an executable or library) from source files. Each rule in a Makefile consists of a target, zero or more prerequisites (dependencies), and a series of commands to be executed when the target is out-of-date relative to its dependencies. The basic structure of a rule in a Makefile is:
 
