@@ -97,3 +97,25 @@ clean:
 ```
 
 In this example, `CC`, `CFLAGS`, and `LDFLAGS` are variables that store the compiler and linker flags. `SRC` is a variable that stores the names of the source files, and `OBJ` is a variable that is derived from `SRC` and stores the names of the object files. The `myprogram` rule depends on the `$(OBJ)` files and is built by linking them together with the `$(LDFLAGS)` variable. The `%o:%c` rule specifies how to build object files from source files, and the `clean` rule removes the object files and the `myprogram` executable.
+
+# Macros
+
+Makefiles have some macros by default:
+
+<ins>Internal macros</ins>
+- Internal macros are predefined in make.
+- “make -p” to display a listing of all the macros, suffix
+rules and targets in effect for the current build
+
+<ins>Special macros</ins>
+- The macro @ evaluates to the name of the current target:
+
+```
+  prog1 : $(objs)
+  $(CXX) -o $@ $(objs)
+```
+- is equivalent to
+```
+prog1 : $(objs)
+$(CXX) -o prog1 $(objs)
+```
