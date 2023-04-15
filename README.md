@@ -6,6 +6,7 @@ Another tutorials and references :
  2. http://www.cs.ecu.edu/karl/3300/spr16/Notes/System/make.html
  3. https://www.youtube.com/watch?v=_r7i5X0rXJk
  4. https://alextan.medium.com/makefile-101-56ba4590025b
+ 5. https://opensource.com/article/18/8/what-how-makefile
 
 # Makefiles why ?
 
