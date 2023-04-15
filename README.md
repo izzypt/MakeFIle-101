@@ -120,3 +120,29 @@ rules and targets in effect for the current build
 prog1 : $(objs)
 $(CXX) -o prog1 $(objs)
 ```
+
+# Simply expanded variables
+
+Both ${CC}  and  $(CC) are valid references to call gcc. But if one tries to reassign a variable to itself, it will cause an infinite loop. Let's verify this:
+
+```
+CC = gcc
+CC = ${CC}
+
+all:
+    @echo ${CC}
+```
+Running make will result in:
+```
+$ make
+Makefile:8: *** Recursive variable 'CC' references itself (eventually).  Stop.
+```
+
+To avoid this scenario, we can use the := operator (this is also called the simply expanded variable). We should have no problem running the makefile below:
+```
+CC := gcc
+CC := ${CC}
+
+all:
+    @echo ${CC}
+```
