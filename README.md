@@ -123,7 +123,7 @@ $(CXX) -o prog1 $(objs)
 
 # Simply expanded variables
 
-Both ${CC}  and  $(CC) are valid references to call gcc. But if one tries to reassign a variable to itself, it will cause an infinite loop. Let's verify this:
+Both ``` ${CC}```   and  ``` $(CC)```  are valid references to call gcc. But if one tries to reassign a variable to itself, it will cause an infinite loop. Let's verify this:
 
 ```
 CC = gcc
