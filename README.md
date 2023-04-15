@@ -109,7 +109,7 @@ Makefiles have some macros by default:
 rules and targets in effect for the current build
 
 <ins>Special macros</ins>
-- The macro @ evaluates to the name of the current target:
+- The macro ```@``` evaluates to the name of the current target:
 
 ```
   prog1 : $(objs)
@@ -120,6 +120,11 @@ rules and targets in effect for the current build
 prog1 : $(objs)
 $(CXX) -o prog1 $(objs)
 ```
+
+- ```$<```
+  - If you only need the first dependency, then ```$<``` is for you. 
+  - Using ```$<``` can be safer than relying on ```$^``` when you have only a single dependency that needs to appear in the commands executed by the target. 
+  - If you start by using ```$^``` when you have a single dependency, if you then add a second, it may be problematic, whereas if you had used ```$<``` from the beginning, it will continue to work. (Of course, you may want to have all dependencies show up. Consider your needs carefully.)
 
 # Simply expanded variables
 
@@ -169,3 +174,15 @@ clean:
 	@echo "Cleaning up..."
 	rm *.txt
 ```
+
+# Meanwhile, some important CC/GCC flags to not forget..
+
+- To specify the output executable filename, all you need to do is append the filename with the ```-o``` flag as shown below:
+  - ```gcc main.c -o Filename```
+- To link the C program with a shared library, all you have to do is append the name of the shared library with the ```-l```  flag
+  - For example, here I have linked the code main.c with the shared library pthread to produce the final executable Result:
+  - ```gcc main.c -o Hello -lpthread``` 
+- But what if you want to link the external libraries? In that case, you'd have to specify the location of the external library using the ``` -L``` 
+  - For example, here, I have linked the shared library “LHB” stored in /home/user/LHB:
+  - ```gcc -L/home/user/LHB -o main.c Results -lLHB```
+-
