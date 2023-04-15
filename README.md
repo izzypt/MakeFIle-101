@@ -138,7 +138,7 @@ $ make
 Makefile:8: *** Recursive variable 'CC' references itself (eventually).  Stop.
 ```
 
-To avoid this scenario, we can use the := operator (this is also called the simply expanded variable). We should have no problem running the makefile below:
+To avoid this scenario, we can use the ```:=``` operator (this is also called the simply expanded variable). We should have no problem running the makefile below:
 ```
 CC := gcc
 CC := ${CC}
