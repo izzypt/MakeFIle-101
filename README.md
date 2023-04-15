@@ -146,3 +146,26 @@ CC := ${CC}
 all:
     @echo ${CC}
 ```
+
+# .PHONY
+
+.PHONY, where we define all the targets that are not files. 
+
+Make will run its recipe regardless of whether a file with that name exists or what its last modification time is. Here is the complete makefile example:
+
+```
+.PHONY: all say_hello generate clean
+
+all: say_hello generate
+
+say_hello:
+	@echo "Hello World"
+
+generate:
+	@echo "Creating empty text files..."
+	touch file-{1..10}.txt
+
+clean:
+	@echo "Cleaning up..."
+	rm *.txt
+```
