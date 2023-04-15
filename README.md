@@ -185,7 +185,7 @@ clean:
 - But what if you want to link the external libraries? In that case, you'd have to specify the location of the external library using the ``` -L``` 
   - For example, here, I have linked the shared library “LHB” stored in /home/user/LHB:
   - ```gcc -L/home/user/LHB -o main.c Results -lLHB```
-- You can use the "-I" flag in your C compiler to include the directory where the header files are located. 
+- You can use the ```-I``` flag in your C compiler to include the directory where the header files are located. 
   - For example, if your header files are in a directory named "headers", you can include them like this:
   - ```CFLAGS=-Iheaders```
 
